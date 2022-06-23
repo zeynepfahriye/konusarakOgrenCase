@@ -3,7 +3,7 @@ import { SafeAreaView, View, Text, StyleSheet, ScrollView, TouchableOpacity, Dim
 import Config from "react-native-config";
 import axios from 'axios'
 import CharacterCard from "../../components/Card/CharacterCard";
-import {Home} from "../Home/Home";
+
 
 const LineDivider = () => {
     return (
@@ -61,7 +61,7 @@ useEffect(() => {
         <ScrollView>
         <View>
             {
-               data && data.map((item, key) => <Home key={key} character={item} />)
+               data && data.map((item, key) => <CharacterCard key={key} character={item} />)
             }
         </View>
         </ScrollView>
