@@ -11,9 +11,8 @@ const LineDivider = () => {
         <View
           style={{
           borderColor:'#8A2BE2',
-      borderLeftWidth:1,
-      flex:1
-          
+          borderLeftWidth:1,
+          flex:1  
           }}></View>
       </View>
     );
@@ -79,6 +78,7 @@ const styles = StyleSheet.create({
       
     },
     text:{
-        color:'#8A2BE2',fontWeight:'bold'
+        color:'#8A2BE2',
+        fontWeight:'bold'
     }
   });
