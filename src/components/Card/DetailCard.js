@@ -1,12 +1,14 @@
 import axios from "axios";
 import React,{useState,useEffect} from "react";
 import {View, Text,Image, TouchableOpacity, Modal, Dimensions} from 'react-native'
+import Loading from "../Loading/Loading";
 import styles from './DetailCardStyle'
 
 
 const DetailCard = ({detail})=> {
  const [list, setList] =useState([])
  const [modal, setModal] = useState(false)
+
 
  useEffect(() => {
     const fetchData = async()=>{
@@ -15,6 +17,7 @@ const DetailCard = ({detail})=> {
     }
     fetchData()
  }, [list])
+ 
 
 return (
   <View style={styles.container}>

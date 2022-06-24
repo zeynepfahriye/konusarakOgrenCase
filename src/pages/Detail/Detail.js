@@ -1,24 +1,29 @@
 import React ,{useState,useEffect}from "react";
-import { SafeAreaView, View, Text,StyleSheet, ScrollView } from "react-native";
+import { SafeAreaView, View, Text,StyleSheet, ScrollView, ActivityIndicator } from "react-native";
 import axios from 'axios'
 import DetailCard from "../../components/Card/DetailCard";
+import Loading from "../../components/Loading/Loading";
 
 export default function Detail({route, navigation}){
 const params = route.params;
 const [data, setData] = useState();
+const [loading, setLoading] = useState(true);
+
 
 useEffect(() => {
     const dataGetter = async () => {
         const response = await axios.get(params.url); // Data
         if(response.data !== undefined) {
-            console.log(response.data)
             setData(response.data) // Data 
+            setLoading(false);
         }
     }; 
     dataGetter();
 }, []);
 
-if(!data) return null
+
+
+if(loading) return <Loading />
     return (
         <SafeAreaView>
         <ScrollView>

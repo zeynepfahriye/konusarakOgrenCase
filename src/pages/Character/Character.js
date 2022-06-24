@@ -3,7 +3,7 @@ import { SafeAreaView, View, Text, StyleSheet, ScrollView, TouchableOpacity, Dim
 import Config from "react-native-config";
 import axios from 'axios'
 import CharacterCard from "../../components/Card/CharacterCard";
-
+import Loading from "../../components/Loading/Loading";
 
 const LineDivider = () => {
     return (
@@ -17,8 +17,10 @@ const LineDivider = () => {
       </View>
     );
   };
+
 export default function Character(){
 
+const [loading, setLoading] = useState(true);
 const [data, setData] = useState();
 const [info, setInfo] = useState({
     count:	0,
@@ -37,12 +39,16 @@ useEffect(() => {
         if(response.data !== undefined) {
             setInfo(response.data.info) //Info
             setData(response.data.results) // Results 
+            setLoading(false)
         }
-        
     };
     dataGetter();
+    
 }, [current]);
 
+if(loading){
+    return <Loading />
+}
     return (
         <SafeAreaView style={{backgroundColor:'#8A2BE2'}}>
         <SafeAreaView style={styles.container}>

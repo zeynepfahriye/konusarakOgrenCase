@@ -1,7 +1,7 @@
 require_relative '../node_modules/react-native/scripts/react_native_pods'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
-platform :ios, '11.0'
+platform :ios, '12.0'
 install! 'cocoapods', :deterministic_uuids => false
 
 target 'caseExample' do
@@ -21,12 +21,6 @@ target 'caseExample' do
 
   pod 'react-native-config', :path => '../node_modules/react-native-config'
 
-
-  target 'caseExampleTests' do
-    inherit! :complete
-    # Pods for testing
-  end
-
   # Enables Flipper.
   #
   # Note that if you have use_frameworks! enabled, Flipper will not work and
@@ -38,3 +32,4 @@ target 'caseExample' do
     __apply_Xcode_12_5_M1_post_install_workaround(installer)
   end
 end
+
